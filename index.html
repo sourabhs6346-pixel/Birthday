@@ -4,128 +4,118 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Happy Birthday, Ponyo 🌹</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=EB+Garamond&family=Cinzel&display=swap" rel="stylesheet"/>
+
 <style>
-/* KEEP YOUR EXISTING CSS (NO CHANGE) */
+body {
+  margin:0;
+  font-family:'EB Garamond', serif;
+  background:#1a0810;
+  color:#fff;
+}
+
+.section {
+  max-width:800px;
+  margin:auto;
+  padding:60px 20px;
+  text-align:center;
+}
+
+.hero {
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+.hero-name {
+  font-size:60px;
+}
+
+.section-heading {
+  font-size:32px;
+}
+
+.bg-mid {background:#14060c;}
+.bg-dark {background:#0d0408;}
+
+.letter-envelope {
+  cursor:pointer;
+  padding:30px;
+  border:1px solid gold;
+}
+
+.letter-content {display:none;}
+.letter-content.open {display:block;}
+
+.music-player {
+  margin-top:20px;
+}
 </style>
 </head>
 
 <body>
 
-<canvas id="petal-canvas"></canvas>
-
 <!-- HERO -->
 <section class="hero">
-  <p class="hero-ornament">A birthday celebration for</p>
-  <h1 class="hero-name">Ponyo<em>Happy Birthday</em></h1>
+  <h1 class="hero-name">Ponyo ❤️</h1>
+  <p>Happy Birthday</p>
 </section>
 
-<div class="divider" style="padding: 3rem 2rem;">
-  <div class="div-rule"></div>
-  <span class="div-center">🌹</span>
-  <div class="div-rule r"></div>
-</div>
-
-<!-- 🎵 SONG (MOVED HERE) -->
+<!-- 🎵 SONG FIRST -->
 <section class="bg-mid">
   <div class="section">
-    <p class="section-eyebrow">playing for you</p>
-    <h2 class="section-heading">Our <em>Song</em></h2>
 
-    <div class="music-player">
-      <div class="music-inner">
-        <div class="music-details">
-          <p class="now-playing-label">Playing for you ❤️</p>
-          <p class="song-title">Love Me Like You Do</p>
-          <p class="song-artist">Ellie Goulding</p>
+    <h2 class="section-heading">Our Song 🎵</h2>
 
-          <p class="song-note">
-            Press play first… then open my letter ❤️
-          </p>
+    <p>Press play… then open my letter ❤️</p>
 
-          <iframe
-            class="spotify-embed"
-            src="https://open.spotify.com/embed/track/0Cy7wt6IlRfBPHXXjmZbcP"
-            width="100%"
-            height="152"
-            frameborder="0"
-            allowfullscreen
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-          </iframe>
-        </div>
-      </div>
-    </div>
+    <iframe
+      src="https://open.spotify.com/embed/track/0Cy7wt6IlRfBPHXXjmZbcP"
+      width="100%"
+      height="152"
+      frameborder="0"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+    </iframe>
+
   </div>
 </section>
 
 <!-- 💌 LETTER -->
 <section class="bg-dark">
   <div class="section">
-    <p class="section-eyebrow">sealed with love</p>
-    <h2 class="section-heading">A Letter for <em>You</em></h2>
 
-    <div class="letter-wrap">
-      <div class="letter-envelope" id="envelope" onclick="openLetter()">
-        <div class="envelope-wax">💌</div>
-        <p class="envelope-hint">Touch to unseal your letter, Ponyo...</p>
-      </div>
+    <h2 class="section-heading">A Letter for You 💌</h2>
 
-      <div class="letter-content" id="letter-content">
-        <div class="letter-paper">
-
-          <p class="letter-date">On your birthday, with all my heart</p>
-
-          <div class="letter-body">
-            <p>My dearest Ponyo,</p>
-
-            <p>
-            I still remember your last birthday like it was yesterday.
-            We went to Montreal — a moment that will always live quietly and beautifully in my heart.
-            </p>
-
-            <p>
-            Sometimes I try to put into words what you mean to me… but words always fall short.
-            Because what I feel for you isn’t something simple — it’s something I live, every single day.
-            </p>
-
-            <p>
-            It’s in the way I think of you in the middle of the day for no reason.
-            It’s in the comfort I feel just knowing you are there.
-            It’s in how everything feels a little more complete when I’m with you.
-            </p>
-
-            <p>
-            You are not just someone I love…
-            you are my safe place, my happiness, and the most beautiful part of my life.
-            </p>
-
-            <p>
-            If I had to do it all over again, I would still find my way to you — every single time.
-            </p>
-
-            <p>
-            Happy Birthday, my love ❤️
-            You are, and always will be, my forever.
-            </p>
-          </div>
-
-          <div class="letter-signature">Forever and always yours 🌹</div>
-
-        </div>
-      </div>
+    <div class="letter-envelope" onclick="openLetter()">
+      Click to open your letter
     </div>
+
+    <div class="letter-content" id="letter-content">
+      <p>My dearest Ponyo,</p>
+
+      <p>
+      I still remember your last birthday like it was yesterday.
+      We went to Montreal — a moment that will always stay in my heart.
+      </p>
+
+      <p>
+      You are my happiness, my peace, and my forever.
+      </p>
+
+      <p>
+      Happy Birthday, my love ❤️
+      </p>
+    </div>
+
   </div>
 </section>
 
 <script>
-function openLetter() {
-  const env = document.getElementById('envelope');
-  const content = document.getElementById('letter-content');
-
-  if (!content.classList.contains('open')) {
-    env.classList.add('opened');
-    content.classList.add('open');
-  }
+function openLetter(){
+  document.getElementById("letter-content").classList.add("open");
 }
 </script>
 
