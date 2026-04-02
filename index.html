@@ -940,12 +940,27 @@ function openLetter() {
 }
 
 const memories = [
-  { year: 'The beginning', title: 'The day we met', desc: 'Some meetings change you quietly, without announcement. That day, everything shifted.' },
-  { year: 'Our first adventure', title: 'Together, somewhere new', desc: 'New places feel different when seen through the eyes of someone you love.' },
-  { year: 'A quiet milestone', title: 'The day I knew', desc: 'No fanfare, no grand gesture — just a soft certainty that settled into my bones.' },
-  { year: 'Today', title: 'Your birthday', desc: 'Another year of you. The most beautiful gift I get to unwrap every single day.' },
+  {
+    year: 'The beginning',
+    title: 'The day we met',
+    desc: '31st December, outside Waterloo airport — the moment I saw you for the first time, I still remember that little jiggling feeling inside me. Something about you felt different… something I knew I never wanted to lose.'
+  },
+  {
+    year: 'Our first adventure',
+    title: 'Montreal',
+    desc: 'We’ve traveled to many places together, but our very first trip to Montreal will always be my favorite. It wasn’t just a trip — it was the beginning of so many beautiful memories that I’ll always hold close to my heart.'
+  },
+  {
+    year: 'A quiet milestone',
+    title: 'One year together',
+    desc: 'On November 14th, 2025, we completed one beautiful year together. A year full of love, laughter, and moments that made us stronger. And this is just the beginning… many more years to come.'
+  },
+  {
+    year: 'Today',
+    title: 'Your birthday',
+    desc: 'Today is the most special day of the whole year — because it’s your birthday! The day the most beautiful person in my life came into this world. I feel so lucky and excited to celebrate you today and always. ❤️'
+  }
 ];
-
 const tlEl = document.getElementById('timeline');
 memories.forEach((m, i) => {
   const div = document.createElement('div');
