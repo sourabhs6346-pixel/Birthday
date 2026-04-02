@@ -384,6 +384,7 @@
     justify-content: center;
     overflow: hidden;
     transition: border-color 0.3s;
+    padding: 10px;
   }
 
   .photo-inner:hover { border-color: rgba(201,168,76,0.5); }
@@ -391,7 +392,7 @@
   .photo-inner img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
   }
 
@@ -485,7 +486,7 @@
     opacity: 0;
   }
 
-  .tl-item.open .tl-desc { max-height: 120px; opacity: 1; }
+  .tl-item.open .tl-desc { max-height: 160px; opacity: 1; }
 
   .music-player {
     background: linear-gradient(135deg, #0e0408 0%, #1e0a14 100%);
@@ -493,6 +494,7 @@
     padding: 2.5rem;
     position: relative;
     overflow: hidden;
+    text-align: center;
   }
 
   .music-player::before {
@@ -511,44 +513,12 @@
   .music-inner {
     position: relative;
     z-index: 1;
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    flex-wrap: wrap;
   }
 
-  .vinyl-wrap { position: relative; flex-shrink: 0; }
-
-  .vinyl {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background:
-      conic-gradient(#0a0406 0deg, #1a0810 30deg, #0a0406 60deg, #1a0810 90deg, #0a0406 120deg, #1a0810 150deg, #0a0406 180deg, #1a0810 210deg, #0a0406 240deg, #1a0810 270deg, #0a0406 300deg, #1a0810 330deg, #0a0406 360deg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 0 2px rgba(201,168,76,0.3), 0 8px 32px rgba(0,0,0,0.6);
-    transition: transform 0.3s;
+  .music-details {
+    max-width: 520px;
+    margin: 0 auto;
   }
-
-  .vinyl.spinning { animation: vinyl-spin 2s linear infinite; }
-  @keyframes vinyl-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-
-  .vinyl-label {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 40% 40%, #e04060, #8b1a30);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 10px;
-    color: rgba(255,255,255,0.8);
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
-  }
-
-  .music-details { flex: 1; min-width: 200px; }
 
   .now-playing-label {
     font-family: 'Cinzel', serif;
@@ -561,7 +531,7 @@
 
   .song-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     color: #fff;
     margin-bottom: 4px;
   }
@@ -569,58 +539,24 @@
   .song-artist {
     font-style: italic;
     color: var(--rose-light);
-    font-size: 0.95rem;
-    margin-bottom: 1.2rem;
-  }
-
-  .music-controls { display: flex; align-items: center; gap: 1rem; }
-
-  .play-btn {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    background: var(--rose);
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 20px rgba(181,41,74,0.5);
-    transition: transform 0.2s, box-shadow 0.2s;
-    flex-shrink: 0;
-  }
-
-  .play-btn:hover { transform: scale(1.1); box-shadow: 0 0 35px rgba(181,41,74,0.7); }
-  .play-btn svg { width: 20px; height: 20px; fill: white; }
-
-  .song-input-wrap {
-    flex: 1;
-    min-width: 160px;
-  }
-
-  .song-input-label {
-    font-family: 'Cinzel', serif;
-    font-size: 8px;
-    letter-spacing: 3px;
-    color: rgba(201,168,76,0.6);
-    text-transform: uppercase;
-    margin-bottom: 6px;
-  }
-
-  .song-input {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(201,168,76,0.2);
-    color: var(--parchment);
-    font-family: 'EB Garamond', serif;
     font-size: 1rem;
-    padding: 8px 12px;
-    width: 100%;
-    outline: none;
-    transition: border-color 0.3s;
+    margin-bottom: 1rem;
   }
 
-  .song-input:focus { border-color: rgba(201,168,76,0.6); }
-  .song-input::placeholder { color: rgba(255,255,255,0.25); font-style: italic; }
+  .song-note {
+    color: var(--rose-light);
+    font-style: italic;
+    margin-bottom: 1.25rem;
+    line-height: 1.7;
+  }
+
+  .spotify-embed {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    border-radius: 12px;
+    display: block;
+  }
 
   .wishes-grid {
     display: grid;
@@ -694,21 +630,11 @@
     .tl-item:nth-child(even) .tl-right { order: unset; text-align: left; padding-right: 0; padding-left: 1.2rem; }
     .tl-item:nth-child(odd) .tl-right { padding-left: 1.2rem; }
     .tl-center { justify-content: flex-start; }
-    .music-inner { flex-direction: column; align-items: flex-start; }
     .photo-frame::before, .photo-frame::after { display: none; }
   }
 </style>
 </head>
 <body>
-
-  <iframe 
-  id="music-player"
-  width="0" 
-  height="0"
-  src="https://www.youtube.com/embed/uWoYIOcOpwU?loop=1&playlist=uWoYIOcOpwU"
-  frameborder="0"
-  allow="autoplay">
-</iframe>
 
 <canvas id="petal-canvas"></canvas>
 
@@ -753,46 +679,36 @@
           <p class="letter-date">On your birthday, with all my heart</p>
           <div class="letter-body">
             <p>My dearest Ponyo,</p>
-        
-<p>
-I still remember your last birthday like it was yesterday.  
-We went to Montreal — a moment that will always live quietly and beautifully in my heart.
-</p>
 
-<p>
-Sometimes I try to put into words what you mean to me… but words always fall short.  
-Because what I feel for you isn’t something simple — it’s something I live, every single day.
-</p>
+            <p>
+            I still remember your last birthday like it was yesterday.
+            We went to Montreal — a moment that will always live quietly and beautifully in my heart.
+            </p>
 
-<p>
-It’s in the way I think of you in the middle of the day for no reason.  
-It’s in the comfort I feel just knowing you are there.  
-It’s in how everything feels a little more complete when I’m with you.
-</p>
+            <p>
+            Sometimes I try to put into words what you mean to me… but words always fall short.
+            Because what I feel for you isn’t something simple — it’s something I live, every single day.
+            </p>
 
-<p>
-We’ve been through so much together — good days, hard days, moments that tested us…  
-but somehow, through it all, we kept choosing each other.
-</p>
+            <p>
+            It’s in the way I think of you in the middle of the day for no reason.
+            It’s in the comfort I feel just knowing you are there.
+            It’s in how everything feels a little more complete when I’m with you.
+            </p>
 
-<p>
-And that’s what makes us real.  
-Not perfection, not easy days… but the fact that we stayed, we tried, we loved — no matter what.
-</p>
+            <p>
+            You are not just someone I love…
+            you are my safe place, my happiness, and the most beautiful part of my life.
+            </p>
 
-<p>
-You are not just someone I love…  
-you are my safe place, my happiness, and the most beautiful part of my life.
-</p>
+            <p>
+            If I had to do it all over again, I would still find my way to you — every single time.
+            </p>
 
-<p>
-If I had to do it all over again, I would still find my way to you — every single time.
-</p>
-
-<p>
-Happy Birthday, my love ❤️  
-You are, and always will be, my forever.
-</p>
+            <p>
+            Happy Birthday, my love ❤️
+            You are, and always will be, my forever.
+            </p>
           </div>
           <div class="letter-signature">Forever and always yours 🌹</div>
         </div>
@@ -828,24 +744,21 @@ You are, and always will be, my forever.
     <h2 class="section-heading">Our <em>Song</em></h2>
     <div class="music-player">
       <div class="music-inner">
-        <div class="vinyl-wrap">
-          <div class="vinyl" id="vinyl">
-            <div class="vinyl-label">♪</div>
-          </div>
-        </div>
-
         <div class="music-details">
           <p class="now-playing-label">Playing for you ❤️</p>
           <p class="song-title">Love Me Like You Do</p>
           <p class="song-artist">Ellie Goulding</p>
+          <p class="song-note">Tap play… this song is for you ❤️</p>
 
-          <div class="music-controls">
-            <button class="play-btn" onclick="togglePlay()" id="play-btn">
-              <svg id="play-icon" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z"/>
-              </svg>
-            </button>
-          </div>
+          <iframe
+            class="spotify-embed"
+            src="https://open.spotify.com/embed/track/0Cy7wt6IlRfBPHXXjmZbcP"
+            width="100%"
+            height="152"
+            frameborder="0"
+            allowfullscreen
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+          </iframe>
         </div>
       </div>
     </div>
@@ -890,8 +803,12 @@ const ctx = canvas.getContext('2d');
 let petals = [];
 let animId = null;
 
-function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-resize(); window.addEventListener('resize', resize);
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
 
 const colors = ['#c8405a','#e8a0b4','#f5d0dc','#fff0f4','#c9a84c','#e8d49a','#fff'];
 
@@ -916,13 +833,18 @@ function launchPetals() {
 function animatePetals() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   petals = petals.filter(p => p.y < canvas.height + 30);
-  if (!petals.length) { animId = null; return; }
+  if (!petals.length) {
+    animId = null;
+    return;
+  }
+
   petals.forEach(p => {
     ctx.save();
     ctx.globalAlpha = p.opacity;
     ctx.translate(p.x, p.y);
     ctx.rotate(p.tilt);
     ctx.fillStyle = p.color;
+
     if (p.shape === 'petal') {
       ctx.beginPath();
       ctx.ellipse(0, 0, p.size, p.size * 0.5, 0, 0, Math.PI * 2);
@@ -930,25 +852,24 @@ function animatePetals() {
     } else {
       ctx.fillRect(-p.size/2, -p.size/2, p.size, p.size * 0.6);
     }
+
     ctx.restore();
     p.y += p.speed;
     p.x += p.wind + Math.sin(p.y * 0.02) * 0.8;
     p.tilt += p.spin;
   });
+
   animId = requestAnimationFrame(animatePetals);
 }
 
 function openLetter() {
   const env = document.getElementById('envelope');
   const content = document.getElementById('letter-content');
+
   if (!content.classList.contains('open')) {
     env.classList.add('opened');
     content.classList.add('open');
     launchPetals();
-
-        // 🎵 Start music
-    const iframe = document.querySelector("iframe");
-    iframe.src = "https://www.youtube.com/embed/uWoYIOcOpwU?autoplay=1&loop=1&playlist=uWoYIOcOpwU";
   }
 }
 
@@ -974,6 +895,7 @@ const memories = [
     desc: 'Today is the most special day of the whole year — because it’s your birthday! The day the most beautiful person in my life came into this world. I feel so lucky and excited to celebrate you today and always. ❤️'
   }
 ];
+
 const tlEl = document.getElementById('timeline');
 memories.forEach((m, i) => {
   const div = document.createElement('div');
@@ -992,24 +914,6 @@ memories.forEach((m, i) => {
   div.querySelectorAll('.tl-title').forEach(el => el.addEventListener('click', () => div.classList.toggle('open')));
   tlEl.appendChild(div);
 });
-
-let playing = false;
-function togglePlay() {
-  playing = !playing;
-  document.getElementById('vinyl').classList.toggle('spinning', playing);
-  const icon = document.getElementById('play-icon');
-  icon.innerHTML = playing
-    ? '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>'
-    : '<path d="M8 5v14l11-7z"/>';
-}
-
-function updateSong(e) {
-  if (e.key === 'Enter') {
-    const val = e.target.value.trim();
-    if (val) document.getElementById('song-title').textContent = val;
-    e.target.value = '';
-  }
-}
 
 setTimeout(() => launchPetals(), 1800);
 </script>
