@@ -20,7 +20,6 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -31,7 +30,6 @@
     cursor: default;
   }
 
-  /* ── CANVAS ── */
   #petal-canvas {
     position: fixed;
     inset: 0;
@@ -39,7 +37,6 @@
     z-index: 1000;
   }
 
-  /* ── HERO ── */
   .hero {
     min-height: 100vh;
     display: flex;
@@ -104,8 +101,8 @@
     width: 80px;
     background: linear-gradient(90deg, transparent, var(--gold));
   }
-  .hero-rule.r { background: linear-gradient(90deg, var(--gold), transparent); }
 
+  .hero-rule.r { background: linear-gradient(90deg, var(--gold), transparent); }
   .hero-rule-icon { color: var(--gold); font-size: 14px; }
 
   .hero-name {
@@ -176,10 +173,7 @@
     z-index: -1;
   }
 
-  .btn-celebrate:hover {
-    color: var(--ink);
-  }
-
+  .btn-celebrate:hover { color: var(--ink); }
   .btn-celebrate:hover::before { transform: scaleX(1); }
 
   .scroll-hint {
@@ -221,7 +215,6 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* ── SECTION BASE ── */
   .section {
     max-width: 760px;
     margin: 0 auto;
@@ -249,7 +242,6 @@
 
   .section-heading em { font-style: italic; color: var(--rose-light); }
 
-  /* ── DIVIDER ── */
   .divider {
     display: flex;
     align-items: center;
@@ -268,10 +260,7 @@
   .div-rule.r { background: linear-gradient(90deg, rgba(201,168,76,0.4), transparent); }
   .div-center { color: var(--gold); font-size: 18px; }
 
-  /* ── LETTER ── */
-  .letter-wrap {
-    position: relative;
-  }
+  .letter-wrap { position: relative; }
 
   .letter-envelope {
     background: linear-gradient(135deg, #1e0a14 0%, #2a0e1c 100%);
@@ -370,10 +359,8 @@
     margin-top: 2rem;
   }
 
-  /* ── PHOTO ── */
   .photo-frame {
     position: relative;
-    cursor: pointer;
     max-width: 480px;
     margin: 0 auto;
   }
@@ -393,10 +380,8 @@
     border: 1px solid rgba(201,168,76,0.2);
     aspect-ratio: 4/3;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
     overflow: hidden;
     transition: border-color 0.3s;
   }
@@ -407,25 +392,8 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: none;
+    display: block;
   }
-
-  .photo-placeholder {
-    text-align: center;
-    pointer-events: none;
-  }
-
-  .photo-placeholder-icon { font-size: 2.5rem; margin-bottom: 0.5rem; opacity: 0.5; }
-
-  .photo-placeholder p {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    color: var(--rose-light);
-    font-size: 1rem;
-    opacity: 0.7;
-  }
-
-  input[type="file"] { display: none; }
 
   .photo-caption {
     text-align: center;
@@ -436,7 +404,6 @@
     font-size: 1.1rem;
   }
 
-  /* ── TIMELINE ── */
   .timeline {
     position: relative;
     padding: 1rem 0;
@@ -520,7 +487,6 @@
 
   .tl-item.open .tl-desc { max-height: 120px; opacity: 1; }
 
-  /* ── MUSIC ── */
   .music-player {
     background: linear-gradient(135deg, #0e0408 0%, #1e0a14 100%);
     border: 1px solid rgba(201,168,76,0.25);
@@ -656,7 +622,6 @@
   .song-input:focus { border-color: rgba(201,168,76,0.6); }
   .song-input::placeholder { color: rgba(255,255,255,0.25); font-style: italic; }
 
-  /* ── WISHES ── */
   .wishes-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -684,7 +649,6 @@
     line-height: 1.7;
   }
 
-  /* ── FOOTER ── */
   .footer {
     background: #080306;
     text-align: center;
@@ -717,11 +681,9 @@
     margin: 1.5rem auto;
   }
 
-  /* ── DARK BG SECTIONS ── */
   .bg-dark { background: #0d0408; }
   .bg-mid { background: linear-gradient(180deg, var(--ink) 0%, #0e0510 100%); }
 
-  /* Responsive */
   @media (max-width: 600px) {
     .timeline::before { left: 20px; }
     .tl-item { grid-template-columns: 40px 1fr; }
@@ -741,7 +703,6 @@
 
 <canvas id="petal-canvas"></canvas>
 
-<!-- HERO -->
 <section class="hero">
   <p class="hero-ornament">A birthday celebration for</p>
   <div class="hero-line">
@@ -763,14 +724,12 @@
   </div>
 </section>
 
-<!-- DIVIDER -->
 <div class="divider" style="padding: 3rem 2rem;">
   <div class="div-rule"></div>
   <span class="div-center">🌹</span>
   <div class="div-rule r"></div>
 </div>
 
-<!-- LETTER -->
 <section class="bg-dark">
   <div class="section">
     <p class="section-eyebrow">sealed with love</p>
@@ -797,28 +756,19 @@
   </div>
 </section>
 
-<!-- PHOTO -->
 <section class="bg-mid">
   <div class="section">
     <p class="section-eyebrow">a moment in time</p>
     <h2 class="section-heading">Our <em>Picture</em></h2>
-    <label for="photo-input">
-      <div class="photo-frame">
-        <div class="photo-inner" id="photo-inner">
-          <div class="photo-placeholder" id="photo-placeholder">
-            <div class="photo-placeholder-icon">📸</div>
-            <p>Click to add a photo of you two</p>
-          </div>
-          <img id="uploaded-img" alt="Us" />
-        </div>
+    <div class="photo-frame">
+      <div class="photo-inner" id="photo-inner">
+        <img src="IMG_1278.jpg" alt="Us" />
       </div>
-    </label>
-    <input type="file" id="photo-input" accept="image/*" onchange="loadPhoto(event)" />
+    </div>
     <p class="photo-caption">Every photo with you is my favourite photo.</p>
   </div>
 </section>
 
-<!-- TIMELINE -->
 <section class="bg-dark">
   <div class="section">
     <p class="section-eyebrow">our story</p>
@@ -827,7 +777,6 @@
   </div>
 </section>
 
-<!-- MUSIC -->
 <section class="bg-mid">
   <div class="section">
     <p class="section-eyebrow">playing for you</p>
@@ -858,7 +807,6 @@
   </div>
 </section>
 
-<!-- WISHES -->
 <section class="bg-dark">
   <div class="section">
     <p class="section-eyebrow">birthday wishes</p>
@@ -884,7 +832,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="footer">
   <span class="footer-rose">🌹</span>
   <p class="footer-name">Ponyo</p>
@@ -893,7 +840,6 @@
 </footer>
 
 <script>
-// ── PETALS / CONFETTI ──
 const canvas = document.getElementById('petal-canvas');
 const ctx = canvas.getContext('2d');
 let petals = [];
@@ -947,7 +893,6 @@ function animatePetals() {
   animId = requestAnimationFrame(animatePetals);
 }
 
-// ── LETTER ──
 function openLetter() {
   const env = document.getElementById('envelope');
   const content = document.getElementById('letter-content');
@@ -958,22 +903,6 @@ function openLetter() {
   }
 }
 
-// ── PHOTO ──
-function loadPhoto(e) {
-  const file = e.target.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = ev => {
-    const img = document.getElementById('uploaded-img');
-    const ph = document.getElementById('photo-placeholder');
-    img.src = ev.target.result;
-    img.style.display = 'block';
-    ph.style.display = 'none';
-  };
-  reader.readAsDataURL(file);
-}
-
-// ── TIMELINE ──
 const memories = [
   { year: 'The beginning', title: 'The day we met', desc: 'Some meetings change you quietly, without announcement. That day, everything shifted.' },
   { year: 'Our first adventure', title: 'Together, somewhere new', desc: 'New places feel different when seen through the eyes of someone you love.' },
@@ -1000,7 +929,6 @@ memories.forEach((m, i) => {
   tlEl.appendChild(div);
 });
 
-// ── MUSIC ──
 let playing = false;
 function togglePlay() {
   playing = !playing;
@@ -1019,7 +947,6 @@ function updateSong(e) {
   }
 }
 
-// Auto-launch subtle petals on load
 setTimeout(() => launchPetals(), 1800);
 </script>
 </body>
