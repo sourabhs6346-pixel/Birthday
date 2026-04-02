@@ -701,6 +701,15 @@
 </head>
 <body>
 
+  <iframe 
+  id="music-player"
+  width="0" 
+  height="0"
+  src="https://www.youtube.com/embed/uWoYIOcOpwU?loop=1&playlist=uWoYIOcOpwU"
+  frameborder="0"
+  allow="autoplay">
+</iframe>
+
 <canvas id="petal-canvas"></canvas>
 
 <section class="hero">
@@ -824,18 +833,18 @@ You are, and always will be, my forever.
             <div class="vinyl-label">♪</div>
           </div>
         </div>
+
         <div class="music-details">
-          <p class="now-playing-label">Now playing</p>
-          <p class="song-title" id="song-title">Can't Help Falling in Love</p>
-          <p class="song-artist">Elvis Presley</p>
+          <p class="now-playing-label">Playing for you ❤️</p>
+          <p class="song-title">Love Me Like You Do</p>
+          <p class="song-artist">Ellie Goulding</p>
+
           <div class="music-controls">
             <button class="play-btn" onclick="togglePlay()" id="play-btn">
-              <svg id="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              <svg id="play-icon" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
             </button>
-            <div class="song-input-wrap">
-              <p class="song-input-label">Your song</p>
-              <input class="song-input" id="song-input" placeholder="Type your special song & press Enter..." onkeydown="updateSong(event)" />
-            </div>
           </div>
         </div>
       </div>
@@ -936,6 +945,10 @@ function openLetter() {
     env.classList.add('opened');
     content.classList.add('open');
     launchPetals();
+
+        // 🎵 Start music
+    const iframe = document.querySelector("iframe");
+    iframe.src = "https://www.youtube.com/embed/uWoYIOcOpwU?autoplay=1&loop=1&playlist=uWoYIOcOpwU";
   }
 }
 
